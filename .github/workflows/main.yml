@@ -22,3 +22,6 @@ jobs:
       - name: execute py script # run the run.py to get the latest data
         run: |
           python main.py
+        env:
+          TFC_ORGANIZATION_NAME: ${{ secrets.TFC_ORGANIZATION_NAME }}
+          TFC_TOKEN: ${{ secrets.TFC_TOKEN }}
