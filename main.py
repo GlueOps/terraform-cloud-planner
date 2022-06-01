@@ -41,9 +41,7 @@ def run_plan_on_workspace(ws):
         }
 
     )
-    response = requests.request("POST", url, headers=headers, data=payload)
-
-    print(response.text)
+    requests.request("POST", url, headers=headers, data=payload)
 
 
 def does_workspace_need_to_be_planned(workspace_id):
@@ -83,7 +81,9 @@ def get_all_workspaces(page_number=1):
 
 
 if __name__ == '__main__':
+    print("Started.")
     get_all_workspaces()
     for ws in WORKSPACES:
         if does_workspace_need_to_be_planned(ws):
             run_plan_on_workspace(ws)
+    print("Completed.")
